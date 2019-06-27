@@ -18,7 +18,8 @@ for char in sourceString :
     newLocation = alphabet.index(char) + 2
     #check if new location needs to be wrapped to beginning.
     if newLocation > len(alphabet)-1 :
-        rollback = newLocation - (len(alphabet)-1) - 1
+        #have to subtract by one again to account for zero based indexing.
+        rollback = (newLocation - (len(alphabet)-1)) - 1
         outputstring +=(alphabet[rollback])
     else :
         outputstring +=(alphabet[newLocation])
